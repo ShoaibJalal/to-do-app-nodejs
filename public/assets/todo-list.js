@@ -1,6 +1,6 @@
 $(document).ready(() => {
 
-  $('form').on('submit', () => {
+  $('form').on('submit', function () {
 
       let item = $('form input');
       let todo = {item: item.val()};
@@ -9,7 +9,7 @@ $(document).ready(() => {
         type: 'POST',
         url: '/todo',
         data: todo,
-        success: (data) => {
+        success: function (data) {
           //do something with the data via front-end framework
           location.reload();
         }

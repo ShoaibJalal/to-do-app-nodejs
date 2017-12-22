@@ -3,30 +3,30 @@
 
 <head>
   <title>ToDo App</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <script src="/assets/todo-list.js"></script>
+
   <link rel="stylesheet" href="/assets/styles.css" type="text/css">
 </head>
 
 <body>
-  <div class="container">
-    <h2>To do List</h2>
+  <div id="todo-table">
+
     <form>
-      <div class="form-group">
-        <input type="text"  placeholder="Enter new item..." required />
-      </div>
-      <button type="submit" class="btn btn-success" >Add Item</button>
+      <input type="text" placeholder="Enter new item..." name="item" required />
+      <button type="submit">Add Item</button>
     </form>
-  </div>
-  <div class="container">
-    <ul class="list-group">
-      <li class="list-group-item">First item</li>
-      <li class="list-group-item">Second item</li>
-      <li class="list-group-item">Third item</li>
+
+
+    <ul>
+      <% for (var i = 0; i < todos.length; i++) { %>
+        <li><%= todos[i].item %></li>
+        <% } %>
+
     </ul>
   </div>
-
 
 </body>
 
