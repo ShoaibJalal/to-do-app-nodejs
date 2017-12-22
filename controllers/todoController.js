@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
-const data = [
+let data = [
   {
     item: 'Buy Bread'
   }, {
@@ -24,6 +24,12 @@ module.exports = (app) => {
     res.json(data);
   });
 
-  app.delete('/todo', (req, res) => {});
+  app.delete('/todo/:item', (req, res) => {
+    data = data.filter(function(todo){
+      return todo.item.replace(/ /g, '-') !== req.params.item;
+    });
+    res.json(data);
+
+  });
 
 };
